@@ -29,7 +29,7 @@ public class TestBase {
             String password = driverConfig.remoteWebPassword();
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("enableVNC", true);
-            capabilities.setCapability("enableVideo", System.getProperty("video.enabled"));
+            capabilities.setCapability("enableVideo", isVideoEnabled());
             Configuration.browserCapabilities = capabilities;
             Configuration.remote = String.format(url, user, password, remoteServer);
         }
@@ -43,8 +43,12 @@ public class TestBase {
         if (Configuration.browser.equals(Browsers.CHROME))
             attachAsText("Browser console logs", getConsoleLogs());
         String videoStorage = System.getProperty("video.storage");
-        if (videoStorage != null && System.getProperty("video.enabled").equals("true"))
+        if (isVideoEnabled() && videoStorage != null)
             attachVideo(videoStorage);
         closeWebDriver();
+    }
+
+    private static boolean isVideoEnabled() {
+        return Boolean.getBoolean(System.getProperty("video.enabled"));
     }
 }
