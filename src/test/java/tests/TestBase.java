@@ -43,6 +43,8 @@ public class TestBase {
         if (Configuration.browser.equals(Browsers.CHROME))
             attachAsText("Browser console logs", getConsoleLogs());
         String videoStorage = System.getProperty("video.storage");
+        System.out.println("!!!! " + videoStorage);
+        System.out.println("!!!! " + isVideoEnabled());
         if (isVideoEnabled() && videoStorage != null)
             attachVideo(videoStorage);
         closeWebDriver();
