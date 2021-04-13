@@ -49,6 +49,6 @@ public class TestBase {
     }
 
     private static boolean isVideoEnabled() {
-        return Boolean.getBoolean(System.getProperty("video.enabled"));
+        return Boolean.parseBoolean(System.getProperty("video.enabled", "true"));
     }
 }
