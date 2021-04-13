@@ -7,13 +7,14 @@ repositories {
     mavenCentral()
 }
 
-def selenideVersion = "5.19.0",
+def selenideVersion = "5.20.1",
     junitVersion = "5.7.1",
     javaFakerVersion = "1.0.2",
     assertjCoreVersion = "3.19.0",
     allureVersion = "2.13.8",
     aspectjweaverVersion = "1.9.6",
-    ownerVersion = "1.0.12"
+    ownerVersion = "1.0.12",
+    operaDriverVersion = "1.5"
 
 allure {
     version = allureVersion
@@ -33,6 +34,7 @@ dependencies {
             "org.junit.jupiter:junit-jupiter-api:$junitVersion",
             "com.github.javafaker:javafaker:$javaFakerVersion",
             "org.aeonbits.owner:owner:$ownerVersion",
+            "com.opera:operadriver:$operaDriverVersion",
             "org.assertj:assertj-core:$assertjCoreVersion")
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 }
